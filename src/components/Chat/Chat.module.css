@@ -1,0 +1,20 @@
+.Chat{
+    width: 100%;
+    height: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 1rem 10px 1rem;
+}
+.ChatInner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* align-items: center;
+    justify-content: center; */
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark-color);
+}

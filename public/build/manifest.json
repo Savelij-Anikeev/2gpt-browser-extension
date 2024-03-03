@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "scam react",
+  "description": "obviously not scam",
+  "version": "0.0.1",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open",
+    "default_icon": "logo2.png"
+  },
+  "permissions": [
+    "scripting"
+  ]
+}

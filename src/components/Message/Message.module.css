@@ -1,0 +1,34 @@
+.message{
+    min-width: 40%;
+    max-width: 70%;
+    background: var(--action-color);
+    margin-top: calc(1rem + 5px);
+    padding: 12px;
+    align-self: flex-end;
+    flex: 0 0 auto;
+    font-weight: 400;
+    overflow-anchor: auto;
+}
+.messageAI{
+    align-self: flex-start;
+    background: var(--bg-color);
+}
+
+.messageInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.date{
+    margin-top: 10px;
+    background-color: var(--dark-color);
+    box-sizing: border-box;
+    padding: 3px 6px;
+    color: var(--light-color);
+}
+.alignSelfEnd {
+    align-self: flex-end;
+}
+.alignSelfStart {
+    align-self: flex-start;
+}

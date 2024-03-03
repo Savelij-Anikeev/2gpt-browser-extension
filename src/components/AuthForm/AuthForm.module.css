@@ -1,0 +1,132 @@
+.authForm{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.authInner{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.authHeader{
+    width: 250px;
+    height: 50px;
+    /* background-color: var(--main-color); */
+    box-sizing: border-box;
+    border: 5px solid var(--bg-color);
+    color: var(--text-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.socialLogos{
+    height: 100%;
+    overflow: hidden;
+}
+.authSocials{
+    width: 250px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.authSocial{
+    width: 120px;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+    cursor: pointer;
+}
+.authSocial:hover{
+    background-color: var(--action-color);
+}
+.authMain{
+    height: 400px;
+    width: 250px;
+    /* background-color: var(--bg-color); */
+}
+
+.authInput{
+    box-sizing: border-box;
+    height: 3rem;
+    width: 100%;
+    background: var(--dark-color);
+    border: 5px solid var(--bg-color);
+    color: var(--light-color);
+    font-weight: 400;
+    padding-left: 1rem;
+}
+/* .authInput:focus{
+    border: 5px solid var(--action-color);
+} */
+.authInputError{
+    border: 5px solid var(--error-color);
+}
+.authInputSuccess{
+    border: 5px solid var(--success-color);
+}
+.authInputSuccess::after{
+    content: "ok";
+    color: #fff;
+}
+.authInput:not(:first-child){
+    margin-top: 1rem;
+}
+.authLink{
+    display: block;
+    margin-top: 1rem;
+}
+.authLinkA{
+    color: var(--text-color);
+    font-weight: 400;
+}
+.authLinkA:hover{
+    color: var(--action-color);
+}
+.authBtn{
+    width: 250px;
+    height: 3rem;
+    margin-top: 2rem;
+    border: 5px solid var(--bg-color);
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    font-weight: 400;
+    transition: all 0.25s;
+}
+.authBtnOk{
+    cursor: pointer;
+    background-color: var(--success-color);
+    color: var(--dark-color);
+    border: none;
+}
+.authBtnOk:hover{
+    background-color: var(--action-color);
+    color: var(--dark-color);
+    border: none;
+}
+
+.warningBlock{
+    box-sizing: border-box;
+    width: 250px;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+    font-weight: 400;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5px;
+    color: var(--light-color);
+    background-color: var(--error-color);
+    overflow: hidden;
+}

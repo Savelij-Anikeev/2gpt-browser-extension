@@ -1,0 +1,59 @@
+.keyboard{
+    border-top: 10px solid var(--bg-color);
+    position: relative;
+    height: 11%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.keyboardInner{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-color);
+
+}
+.keyboardTextarea{
+    box-sizing: border-box;
+    padding: 12px 10px;
+    margin: 0;
+    height: 100%;
+    border: 2px solid var(--action-color);
+    background-color: var(--dark-color);
+    width: calc(100% - 2rem);
+    resize: none;
+    color: var(--text-color);
+    text-decoration: none;
+    border: none;
+    transition: all 0.25s;
+    
+}
+.keyboardTextarea:focus{
+    color: var(--light-color);
+}
+
+.keyboardButton{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    aspect-ratio: 1;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s;
+    border-bottom: 2px solid var(--dark-color);
+}
+
+.sentIcon{
+    opacity: 0.4;
+    height: 2rem;
+    transition: all 0.25s;
+}
+.sentIcon:hover{
+    opacity: 1;
+}

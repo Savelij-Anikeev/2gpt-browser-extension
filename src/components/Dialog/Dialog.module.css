@@ -1,0 +1,23 @@
+.dialog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90%;
+    font-size: 1rem;
+    border-bottom: 1rem solid var(--dark-color);
+}
+.dialogInner{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.dialogInner * {
+    overflow-anchor: none;
+}
+
