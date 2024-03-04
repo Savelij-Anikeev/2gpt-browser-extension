@@ -11,3 +11,10 @@ export function validateEmail(email: string): boolean {
 
     return re.test(email);
 }
+
+export function validateConfirmationCode(code: string): boolean {
+    if (!(code.length === 6)){
+        return false
+    }
+    return true
+}

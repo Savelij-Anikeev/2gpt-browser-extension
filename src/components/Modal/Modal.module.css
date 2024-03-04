@@ -33,7 +33,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .modalBody{
     height: calc(100% - 4rem);
@@ -41,6 +41,11 @@
 }
 .closeIcon{
     height: 2rem;
+    cursor: pointer;
+}
+.backBtn{
+    height: 2rem;
+    aspect-ratio: 1;
     cursor: pointer;
 }
 

@@ -1,29 +1,27 @@
+// styles
 import './App.css';
 import './normalize.css';
 
-import { useState } from 'react';
+// pages
+import HomePage from './pages/HomePage';
+import AuthorizePage from './pages/AuthorizePage';
+import PasswordResetPage from './pages/PasswordResetPage';
+import ConfirmationPage from './pages/ConfirmationPage';
 
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Chat from './components/Chat';
-import Modal from './components/Modal';
-import AuthForm from './components/AuthForm';
+// routing 
+import { Routes, Route, Link } from 'react-router-dom';
 
 
 function App() {
-  const [selectedAI, changeselectedAI] = useState<string>('GPT-4');
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const handleModal = () => {
-    setIsOpen(e => !e)
-  }
 
   return (
     <>
-      <Modal isOpen={isOpen} setIsOpen={handleModal}><AuthForm /></Modal>
-      <Header setIsOpen={handleModal}/>
-      <Nav selectedAI={selectedAI} 
-           handleChange={(e: any) => { changeselectedAI(e) }}/>
-      <Chat selectedAI={selectedAI}/>
+      <Routes>
+        <Route path='/' element={<HomePage />}/>
+        <Route path='/authorize' element={<AuthorizePage />} />
+        <Route path='/reset-password' element={<PasswordResetPage />} />
+        <Route path='/confirmation' element={<ConfirmationPage />} />
+      </Routes>
     </>
   );
 }

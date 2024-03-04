@@ -1,50 +1,44 @@
 // styles
-import styles from "./AuthForm.module.css"
+import styles from "./ResetPassword.module.css"
 
 // react hooks
 import { useState, useEffect } from "react"
 
 // react-dom-router
-import { Link } from "react-router-dom"
-
-// images
-import googleLogo from "../../images/icons/google.png"
-import githubLogo from "../../images/icons/github.png"
+import { Link, useNavigate } from "react-router-dom"
 
 // logic (validators)
-import { validateEmail, validatePassword } from "../../logic/validators"
+import { validateEmail } from "../../logic/validators"
 
 // interfaces
 interface IInputStyles {
     email: string | null
-    password: string | null
     btn: string | null
 }
 
 interface IIsInputValid {
     email: boolean
-    password: boolean
 }
 
 interface IInputValues {
     email: string
-    password: string
 }
 
 
-export default function AuthForm(){
+export default function ResetPassword(){
+    //
+    const navigate = useNavigate();
+
     // states
     const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(true);
-    const [inputValues, setInputValues] = useState<IInputValues>({email: '', password: ''});
-    const [inputStyles, setInputStyles] = useState<IInputStyles>({email: '', 
-                                                                  password: '',
-                                                                  btn: ''});                                                  
-    const [isValid, setIsValid] = useState<IIsInputValid>({email: true, password: true});
+    const [inputValues, setInputValues] = useState<IInputValues>({email: ''});
+    const [inputStyles, setInputStyles] = useState<IInputStyles>({email: '', btn: ''});                                                  
+    const [isValid, setIsValid] = useState<IIsInputValid>({email: true});
 
     // function for button styling and functionality
     useEffect(() => {
         function handleButtonChange(){
-            const value = (isValid.email && isValid.password) && !(inputValues.email === '' || inputValues.password === '');
+            const value = (isValid.email) && !(inputValues.email === '');
             setIsButtonDisabled(!value);
             setInputStyles(prev => {
                 const res = {...prev};
@@ -64,14 +58,14 @@ export default function AuthForm(){
         // changing values
         setInputValues(prev => {
             const res = {...prev};
-            fieldName === 'email' ? res.email = newValue : res.password = newValue;
+            res.email = newValue;
             return res;
         });
 
         // setting boolean values
         setIsValid(prev => {
             const res = {...prev};
-            fieldName === 'email' ? res.email = isValidValue : res.password = isValidValue;
+            res.email = isValidValue;
             return res;
         });
         
@@ -81,14 +75,14 @@ export default function AuthForm(){
             // success
             setInputStyles(prev => {
                 const res = {...prev};
-                fieldName === 'email' ? res.email = `${styles.authInputSuccess}` : res.password = `${styles.authInputSuccess}`;
+                res.email = `${styles.authInputSuccess}`;
                 return res;
             });
         } else {
             // failure
             setInputStyles(prev => {
                 const res = {...prev};
-                fieldName === 'email' ? res.email = `${styles.authInputError}` : res.password = `${styles.authInputError}`;
+                res.email = `${styles.authInputError}`;
                 return res;
             });
         }
@@ -98,17 +92,7 @@ export default function AuthForm(){
         <div className={styles.authForm}>
             <div className={styles.authInner}>
                 <div className={styles.authHeader}>
-                    LOGIN/REGISTER
-                </div>
-                <div className={styles.authSocials}>
-                    <div className={styles.authSocial}>
-                        <img src={googleLogo} alt="google" 
-                        className={styles.socialLogos}/>
-                    </div>
-                    <div className={styles.authSocial}>
-                        <img src={githubLogo} alt="github"
-                        className={styles.socialLogos}/>
-                    </div>
+                    RESET PASSWORD
                 </div>
                 <div className={styles.authMain}>
                     <input type="email" name="email" 
@@ -121,25 +105,17 @@ export default function AuthForm(){
                         <p>Email is not valid! Example:</p>
                         <i>test@gmail.com</i>
                     </div> : <></>} 
-                    <input type="password" name="psw"
-                        className={`${styles.authInput} ` + `${inputStyles?.password}`}
-                        placeholder="password" 
-                        value={inputValues.password}
-                        onChange={e => handleInputChange(e, validatePassword, 'password')}/>
-                    {!isValid.password ? 
-                    <div className={styles.warningBlock}>
-                        <p>Your password length should be 8 characters or more</p>
-                    </div> : <></>}
-                    <div className={styles.authLink}>
-                        <Link to={'/reset-password'} className={styles.authLinkA}>
-                            forgot password?
+                    {/* <div className={styles.authLink}>
+                        <Link to='/authorize' className={styles.authLinkA}>
+                            Back to login/register page
                         </Link>
-                    </div>
+                    </div> */}
                     <input type="submit" 
                         name="submitBtn"
                         className={`${styles.authBtn} ` + `${inputStyles?.btn}`}
                         disabled={isButtonDisabled}
-                        onClick={()=>alert('123')}/>
+                        onClick={()=>navigate('/confirmation')}
+                        value='Get confirmation code'/>
                 </div>
             </div>
         </div>

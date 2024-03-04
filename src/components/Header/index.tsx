@@ -1,14 +1,15 @@
+// styles
 import styles from "./Header.module.css"
-import profileLogo from "../../images/icons/profile.png"
 
+// images
+import profileLogo from "../../images/icons/profile.png"
 import logo from "../../images/icons/logo2.png"
 
-interface IHeaderProps {
-    setIsOpen: any
-}
+// react-dom-router
+import { Link } from "react-router-dom";
 
 
-export default function Header(props: IHeaderProps) {
+export default function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.headerInner}>
@@ -21,9 +22,9 @@ export default function Header(props: IHeaderProps) {
                     <img src={profileLogo} 
                     alt="account" 
                     className={styles.profileLogo}/>
-                    <a onClick={props.setIsOpen}>
-                        sign in
-                    </a>
+                    <Link to='/authorize'>
+                        sign up
+                    </Link>
                 </div>
             </div>
         </header>
